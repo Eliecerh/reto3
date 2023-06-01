@@ -1,7 +1,8 @@
 package com.grupoG32.reto3.controller;
 
-import com.grupoG32.reto3.dbo.AdminDbo;
+import com.grupoG32.reto3.dbo.GamaDbo;
 import com.grupoG32.reto3.model.AdminModel;
+import com.grupoG32.reto3.model.GamaModel;
 import com.grupoG32.reto3.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,19 +10,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/Admin")
-public class AdminController {
+@RequestMapping("api/Gama")
+public class GamaController {
 
-    @Autowired
-    AdminService adminService;
+    //@Autowired
+    //AdminService adminService;
     @GetMapping("/all")
-    public List<AdminModel> obtenerAdministradores(){
+    public List<GamaModel> obtenerGamas(){
+
         //return adminService.obtenerAdministradores();
         return null;
     }
     @PostMapping("/save")
-    public String crearAdministradores(@RequestBody AdminDbo adminDbo){
-        //return adminService.crearAdministradores(adminDbo);
+    public String crearGamas(@RequestBody GamaDbo gama){
+        //return adminService.crearAdministradores(adminModel);
         return null;
     }
 }
