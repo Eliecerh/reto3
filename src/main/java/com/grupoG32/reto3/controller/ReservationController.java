@@ -6,6 +6,7 @@ import com.grupoG32.reto3.model.ReservationModel;
 import com.grupoG32.reto3.service.AdminService;
 import com.grupoG32.reto3.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class ReservationController {
         return reservationService.obtener();
     }
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public void crear(@RequestBody ReservationModel reservation){
         reservationService.crear(reservation);
     }
