@@ -1,10 +1,12 @@
 package com.grupoG32.reto3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Client")
@@ -24,4 +26,11 @@ public class ClientModel {
     private String password;
     @Column(length = 3)
     private byte age;
+
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "client")
+
+    private List<MessageModel> messages;
+
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "client")
+    private List<ReservationModel> reservations;
 }

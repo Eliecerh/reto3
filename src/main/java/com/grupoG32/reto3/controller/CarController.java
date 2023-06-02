@@ -4,7 +4,9 @@ import com.grupoG32.reto3.dbo.AdminDbo;
 import com.grupoG32.reto3.dbo.CarDbo;
 import com.grupoG32.reto3.model.CarModel;
 import com.grupoG32.reto3.service.AdminService;
+import com.grupoG32.reto3.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,15 +16,14 @@ import java.util.List;
 public class CarController {
 
     @Autowired
-    AdminService adminService;
+    CarService carService;
     @GetMapping("/all")
-    public List<CarModel> obtenerCarros(){
-        //return adminService.obtenerAdministradores();
-        return null;
+    public List<CarModel> obtener(){
+        return carService.obtener();
     }
     @PostMapping("/save")
-    public String crearCarros(@RequestBody CarDbo car){
-        //return adminService.crearAdministradores(adminDbo);
-        return null;
+    @ResponseStatus(HttpStatus.CREATED)
+    public void crear(@RequestBody CarModel car){
+        carService.crear(car);
     }
 }
